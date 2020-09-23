@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema name="minimal" version="${tests.schema.version:1.6}">
+
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true" />
+  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+  <fieldType name="int" class="solr.IntPointField" docValues="true"/>
+  <fieldType name="float" class="solr.FloatPointField" docValues="true"/>
+  <fieldType name="long" class="solr.LongPointField" docValues="true"/>
+  <fieldType name="double" class="solr.DoublePointField" docValues="true"/>
+  <fieldType name="date" class="solr.DatePointField" docValues="true"/>
+
+  <fieldType name="strings" class="solr.StrField" sortMissingLast="true" docValues="true" multiValued="true"/>
+  <fieldType name="booleans" class="solr.BoolField" sortMissingLast="true" multiValued="true"/>
+  <fieldType name="ints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+  <fieldType name="floats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+  <fieldType name="longs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+  <fieldType name="doubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+  <fieldType name="dates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+
+  <dynamicField name="*_s" type="string" indexed="true" stored="true"/>
+  <dynamicField name="*_ss" type="strings" indexed="true" stored="true"/>
+  <dynamicField name="*_i" type="int" indexed="true" stored="true"/>
+  <dynamicField name="*_is" type="ints" indexed="true" stored="true"/>
+  <dynamicField name="*_f" type="float" indexed="true" stored="true"/>
+  <dynamicField name="*_fs" type="floats" indexed="true" stored="true"/>
+  <dynamicField name="*_l" type="long" indexed="true" stored="true"/>
+  <dynamicField name="*_ls" type="longs" indexed="true" stored="true"/>
+  <dynamicField name="*_d" type="double" indexed="true" stored="true"/>
+  <dynamicField name="*_ds" type="doubles" indexed="true" stored="true"/>
+  <dynamicField name="*_b" type="boolean" indexed="true" stored="true"/>
+  <dynamicField name="*_bs" type="booleans" indexed="true" stored="true"/>
+
+  <field name="${tests.uniqueKey.name:id}" type="${tests.uniqueKey.type:string}" multiValued="false" indexed="true" required="true" stored="${tests.uniqueKey.stored:true}" docValues="${tests.uniqueKey.docValues:true}"/>
+
+  <field name="parentId" type="string" indexed="true" stored="true" multiValued="false" required="false"/>
+
+  <field name="_version_" type="long" indexed="true" stored="true"/>
+
+
+  <!-- Field to use to determine and enforce document uniqueness.
+        Unless this field is marked with required="false", it will be a required field
+     -->
+  <uniqueKey>${tests.uniqueKey.name:id}</uniqueKey>
+
+  <field name="_root_" type="string" indexed="true" stored="true" required="false" multiValued="false"  />
+
+</schema>
