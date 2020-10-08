@@ -5,7 +5,7 @@
       "name": "doc-transformer",
       "setup-command": {
         "path": "/api/collections/${collection}/config",
-        "payload": {"add-transformer": {"name": "childquery", "class": "childquery:com.munendrasn.transformer.ChildSubQueryAugmenterFactory"}},
+        "payload": {"add-transformer": {"name": "childquery", "class": "child-transformer:com.munendrasn.transformer.ChildSubQueryAugmenterFactory"}},
         "method": "POST"
       },
       "uninstall-command": {
