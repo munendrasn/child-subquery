@@ -1,0 +1,18 @@
+[
+  {
+    "name": "child-transformer",
+    "description": "A doc transformer to fetch child documents in Solr",
+    "versions": [
+      {
+        "version": "0.0.1",
+        "date": "2020-10-08",
+        "artifacts": [
+          {
+            "url": "child-subquery-0.0.1.jar",
+            "sig": "gkplR+dm2wwOvkXX5peVTiIOvAWLswaXERX+dwpEBQ8JYLyS52PTrlxMi4kxwVcm6eg65DQwt9MR4JmS8Ms6RA=="
+          }
+        ]
+      }
+    ]
+  }
+]
