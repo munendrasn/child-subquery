@@ -1,0 +1,24 @@
+{
+  "version-constraint": "8 - 9",
+  "plugins": [
+    {
+      "name": "doc-transformer",
+      "setup-command": {
+        "path": "/api/collections/${collection}/config",
+        "payload": {"add-transformer": {"name": "childquery", "class": "childquery:org.munendrasn.transformer.ChildSubQueryAugmenterFactory"}},
+        "method": "POST"
+      },
+      "uninstall-command": {
+        "path": "/api/collections/${collection}/config",
+        "payload": {"delete-transformer": "childquery"},
+        "method": "POST"
+      },
+      "verify-command": {
+        "path": "/api/collections/${collection}/config/transformer?componentName=childquery&meta=true",
+        "method": "GET",
+        "condition": "$['config'].['transformer'].['childquery'].['_packageinfo_'].['version']",
+        "expected": "${package-version}"
+      }
+    }
+  ]
+}
