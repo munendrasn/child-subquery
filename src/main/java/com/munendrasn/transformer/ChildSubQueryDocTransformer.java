@@ -1,4 +1,4 @@
-package org.munendrasn.transformer;
+package com.munendrasn.transformer;
 
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.join.BitSetProducer;
