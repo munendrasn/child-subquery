@@ -8,6 +8,8 @@
 # GIT patch
 *.patch
 
+*.pem
+
 # Maven build
 target/
 .classpath
