@@ -134,4 +134,4 @@ Once plugin is installed, add this to `solrconfig.xml`
   <transformer name="childquery" class="org.munendrasn.transformer.ChildSubQueryAugmenterFactory" />
 ```
 
-Or Add it using [Config API](https://lucene.apache.org/solr/guide/8_6/config-api.html#advanced-commands-for-components)
+Or Add it using [Config API](https://lucene.apache.org/solr/guide/8_6/config-api.html#advanced-commands-for-components) Or install as a [package](PACKAGE.md)
