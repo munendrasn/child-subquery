@@ -1,4 +1,4 @@
-package org.munendrasn.transformer;
+package com.munendrasn.transformer;
 
 import com.carrotsearch.randomizedtesting.annotations.Repeat;
 import org.apache.solr.SolrTestCaseJ4;

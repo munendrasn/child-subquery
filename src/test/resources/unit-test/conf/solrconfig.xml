@@ -74,7 +74,7 @@
   <requestHandler class="solr.FieldAnalysisRequestHandler" name="/analysis/field" startup="lazy"/>
 
   <!-- New DocTransformer -->
-  <transformer name="childquery" class="org.munendrasn.transformer.ChildSubQueryAugmenterFactory" />
+  <transformer name="childquery" class="com.munendrasn.transformer.ChildSubQueryAugmenterFactory" />
 
   <requestHandler name="/query" class="solr.SearchHandler">
     <lst name="defaults">
