@@ -58,13 +58,13 @@ public class TestChildSubQueryAugmenter extends SolrTestCaseJ4 {
                     h.query(req("q", "parent_b:true", "fl", "*,child:[childquery]"));
         });
         assertEquals(SolrException.ErrorCode.BAD_REQUEST.code, ex.code());
-        assertThat(ex.getMessage(), containsString("parentFilter is missing for childquery 'child'"));
+        assertThat(ex.getMessage(), containsString("parentFilter is missing for transformer 'child'"));
 
         ex = expectThrows(SolrException.class, () ->{
             h.query(req("q", "parent_b:true", "fl", "*,[childquery]"));
         });
         assertEquals(SolrException.ErrorCode.BAD_REQUEST.code, ex.code());
-        assertThat(ex.getMessage(), containsString("please give an explicit name for [childquery] column ie fl=relation:[childquery ..]"));
+        assertThat(ex.getMessage(), containsString("please give an explicit name for doc transformer '[childquery]'"));
 
         // with child rows parameter
         SolrQueryRequest solrQueryRequest = req("q", "parent_b:true", "fl", "*,child" +

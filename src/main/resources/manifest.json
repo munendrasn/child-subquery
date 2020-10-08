@@ -5,20 +5,23 @@
       "name": "doc-transformer",
       "setup-command": {
         "path": "/api/collections/${collection}/config",
-        "payload": {"add-transformer": {"name": "childquery", "class": "child-transformer:com.munendrasn.transformer.ChildSubQueryAugmenterFactory"}},
+        "payload": {"add-transformer": {"name": "${TRANSFORMER_NAME}", "class": "child-transformer:com.munendrasn.transformer.ChildSubQueryAugmenterFactory"}},
         "method": "POST"
       },
       "uninstall-command": {
         "path": "/api/collections/${collection}/config",
-        "payload": {"delete-transformer": "childquery"},
+        "payload": {"delete-transformer": "${TRANSFORMER_NAME}"},
         "method": "POST"
       },
       "verify-command": {
-        "path": "/api/collections/${collection}/config/transformer?componentName=childquery&meta=true",
+        "path": "/api/collections/${collection}/config/transformer?componentName=${TRANSFORMER_NAME}&meta=true",
         "method": "GET",
-        "condition": "$['config'].['transformer'].['childquery'].['_packageinfo_'].['version']",
+        "condition": "$['config'].['transformer'].['${TRANSFORMER_NAME}'].['_packageinfo_'].['version']",
         "expected": "${package-version}"
       }
     }
-  ]
+  ],
+  "parameter-defaults": {
+    "TRANSFORMER_NAME": "childquery"
+  }
 }
