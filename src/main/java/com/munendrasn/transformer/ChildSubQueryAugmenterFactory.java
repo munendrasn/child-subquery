@@ -52,7 +52,7 @@ public class ChildSubQueryAugmenterFactory extends TransformerFactory {
 
         if (field.contains("[") || field.contains("]")) {
             throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,
-                    "please give an explicit name for [childquery] column ie fl=relation:[childquery ..]");
+                    "please give an explicit name for doc transformer '" + field + "'");
         }
         checkThereIsNoDupe(field, req.getContext());
         SolrParams subParams = retainAndShiftPrefix(req.getParams(), field + ".");
@@ -61,7 +61,7 @@ public class ChildSubQueryAugmenterFactory extends TransformerFactory {
         String parentFilter = subParams.get( "parentFilter" );
         if( parentFilter == null ) {
             throw new SolrException( SolrException.ErrorCode.BAD_REQUEST,
-                    "parentFilter is missing for childquery '" + field + "'");
+                    "parentFilter is missing for transformer '" + field + "'");
         }
         BitSetProducer parentBitSet = null;
         try {
@@ -117,7 +117,7 @@ public class ChildSubQueryAugmenterFactory extends TransformerFactory {
         // check entry absence
         if (conflictMap.containsKey(field)) {
             throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,
-                    "[childquery] name " + field + " is duplicated");
+                    "child doc transformer name " + field + " is duplicated");
         } else {
             conflictMap.put(field, true);
         }
